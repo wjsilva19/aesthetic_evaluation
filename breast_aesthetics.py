@@ -91,24 +91,24 @@ gnd = []
 
 sk_init = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 for init_idx, val_idx in sk_init.split(X, labels):
-    X_after, X_val =  X[init_idx], X[val_idx]
-    fts_after, fts_val = fts[init_idx], fts[val_idx]
-    y_after, y_val = labels[init_idx], labels[val_idx]
+    X_after, X_test =  X[init_idx], X[val_idx]
+    fts_after, fts_test = fts[init_idx], fts[val_idx]
+    y_after, y_test = labels[init_idx], labels[val_idx]
         
     break
 
 model = CNN_classifier()
 model.fit(X_after, fts_after, y_after)
-preds = model.predict(X_val)
+preds = model.predict(X_test)
 
 print(preds[1])
 print(np.round(preds[1],0))
-print(y_val)
+print(y_test)
 
 p = np.array(np.round(preds[1],0), dtype='int')
 
 predictions.append(p.tolist())
-gnd.append(y_val)
+gnd.append(y_test)
     
 predictions = [item for sublist in predictions for item in sublist]
 predictions = [item for sublist in predictions for item in sublist]
