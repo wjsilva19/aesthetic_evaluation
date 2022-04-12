@@ -70,7 +70,7 @@ int_model = Model(inputs=model.input, outputs=model.layers[-1].output)
 int_model.compile(optimizer='adadelta', loss=losses.binary_crossentropy, metrics=['accuracy'])
 int_model.summary()
 
-int_model.load_weights('model_clf_new.hdf5')
+int_model.load_weights('model_clf__.hdf5')
 
 get_penultimate_output = K.function([int_model.layers[0].input],\
                                     [int_model.layers[-2].output])
