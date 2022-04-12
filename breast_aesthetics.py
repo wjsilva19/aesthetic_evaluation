@@ -90,10 +90,10 @@ predictions = []
 gnd = [] 
 
 sk_init = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-for init_idx, val_idx in sk_init.split(X, labels):
-    X_after, X_test =  X[init_idx], X[val_idx]
-    fts_after, fts_test = fts[init_idx], fts[val_idx]
-    y_after, y_test = labels[init_idx], labels[val_idx]
+for init_idx, test_idx in sk_init.split(X, labels):
+    X_after, X_test =  X[init_idx], X[test_idx]
+    fts_after, fts_test = fts[init_idx], fts[test_idx]
+    y_after, y_test = labels[init_idx], labels[test_idx]
         
     break
 
