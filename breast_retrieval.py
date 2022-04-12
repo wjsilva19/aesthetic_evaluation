@@ -55,7 +55,7 @@ for train_idx, val_idx in sk.split(X_after, y_after):
 
 
 # load final saved model 
-model = load_model('model_clf_new.hdf5')  
+model = load_model('model_clf__.hdf5')  
 model.summary()
 
 train_preds = model.predict(X_train)
