@@ -188,10 +188,10 @@ class CNN_classifier(BaseEstimator, ClassifierMixin):
     def fit(self, X, fts, y): 
         # split data into train and validation
         sk = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-        for train_idx, test_idx in sk.split(X, y):
-            X_train, X_val = X[train_idx], X[test_idx]
-            fts_train, fts_val = fts[train_idx], fts[test_idx]
-            y_train, y_val = y[train_idx], y[test_idx]
+        for train_idx, val_idx in sk.split(X, y):
+            X_train, X_val = X[train_idx], X[val_idx]
+            fts_train, fts_val = fts[train_idx], fts[val_idx]
+            y_train, y_val = y[train_idx], y[val_idx]
             
             break
         
